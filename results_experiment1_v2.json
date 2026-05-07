@@ -1,0 +1,186 @@
+{
+  "Baseline": [
+    {
+      "question": "What year was the transformer architecture introduced and in which paper?",
+      "key_fact": "2017",
+      "correct": true,
+      "input_len": 3944,
+      "compressed_len": 3944,
+      "retention_pct": 100.0,
+      "time": 4.7674641609191895,
+      "peak_mem_gb": 18.304210662841797,
+      "answer": "ThetranswasmuchĠasĠperĠtheĠtransformerĠarchitectureĠofĠthetransformerly,Ġthetransformerly,Ġthetransformerly,whichpaper:\"TheĠtransformerĠarchitectureĠo"
+    },
+    {
+      "question": "What is the default block size used in PagedAttention?",
+      "key_fact": "16",
+      "correct": true,
+      "input_len": 3542,
+      "compressed_len": 3542,
+      "retention_pct": 100.0,
+      "time": 4.0156285762786865,
+      "peak_mem_gb": 17.958126068115234,
+      "answer": "16tokensperĠtheĠdefaultĠblock_size=16tokensperblocksizeof16tokensperblocksizeĠofĠtheĠdefaultblocksizeof16tokensper-tokensper-tokensper-tokensper-token"
+    },
+    {
+      "question": "How many threads does a warp consist of in CUDA?",
+      "key_fact": "32",
+      "correct": true,
+      "input_len": 3537,
+      "compressed_len": 3537,
+      "retention_pct": 100.0,
+      "time": 4.016772270202637,
+      "peak_mem_gb": 17.953869342803955,
+      "answer": "32ĊOkay,ĠinĠCUDA(Ġ)ĊOkay,Ġwhichis32ĊOkay,wherĊOkay,whichCUDA(ComputeUnifiedDeviceĠArchitecture:CUDA(ComputeUnifiedDeviceĠArchitecture:CUDA(ComputeUnif"
+    },
+    {
+      "question": "What are the three main stages of the RLHF pipeline?",
+      "key_fact": "supervised fine-tuning",
+      "correct": false,
+      "input_len": 3353,
+      "compressed_len": 3353,
+      "retention_pct": 100.0,
+      "time": 3.8822121620178223,
+      "peak_mem_gb": 17.797258853912354,
+      "answer": "Thethreinvoluntary1.ĠTheĠthreeĠmainĠstagesofthebasically,orrespondingeneralized,thereforevertext:First,supdatadoptionallyingatheringhumaĊĊOkay,whichar"
+    }
+  ],
+  "SnapKV-512": [
+    {
+      "question": "What year was the transformer architecture introduced and in which paper?",
+      "key_fact": "2017",
+      "correct": true,
+      "input_len": 3944,
+      "compressed_len": 512,
+      "retention_pct": 13.0,
+      "time": 2.866956949234009,
+      "peak_mem_gb": 17.626808643341064,
+      "answer": "Thetransformerarchitecturewasintroducedin2017intheĠpaper\"AttentionisAllYouNeed\"byVaswanietal.ĊOkay,ĠsoĠIĠneedĠtoĠfigureĠoutĠtheĠyearĠtheĠtransformerĠa"
+    },
+    {
+      "question": "What is the default block size used in PagedAttention?",
+      "key_fact": "16",
+      "correct": true,
+      "input_len": 3542,
+      "compressed_len": 512,
+      "retention_pct": 14.5,
+      "time": 2.6742961406707764,
+      "peak_mem_gb": 17.332276821136475,
+      "answer": "16tokensperblock.ĊOkay,ĠsoĠI'mĠtryingĠtoĠfigureĠoutĠtheĠdefaultĠblockĠsizeĠusedĠinĠPagedĠAttention.ĠIĠrememberĠreadingĠthatĠPagedĠAttentionĠisĠaĠpartĠ"
+    },
+    {
+      "question": "How many threads does a warp consist of in CUDA?",
+      "key_fact": "32",
+      "correct": true,
+      "input_len": 3537,
+      "compressed_len": 512,
+      "retention_pct": 14.5,
+      "time": 2.668823719024658,
+      "peak_mem_gb": 17.32887554168701,
+      "answer": "32ĊOkay,ĠsoĠI'mĠtryingĠtoĠfigureĠoutĠhowĠmanyĠthreadsĠaĠwarpĠconsistsĠofĠinĠCUDA.ĠIĠrememberĠthatĠCUDAĠisĠaĠparallelĠcomputingĠplatformĠfromĠNVIDIA,Ġa"
+    },
+    {
+      "question": "What are the three main stages of the RLHF pipeline?",
+      "key_fact": "supervised fine-tuning",
+      "correct": false,
+      "input_len": 3353,
+      "compressed_len": 512,
+      "retention_pct": 15.3,
+      "time": 2.6463942527770996,
+      "peak_mem_gb": 17.200231075286865,
+      "answer": "Thethreemainstagesare:1.SupervisedFine-Tuning(SFT)2.RewardModelTraining3.ReinforcementLearning(RL)withPPO.Ċ```ĊAlright,ĠsoĠI'mĠtryingĠtoĠunderstandĠth"
+    }
+  ],
+  "SnapKV-1024": [
+    {
+      "question": "What year was the transformer architecture introduced and in which paper?",
+      "key_fact": "2017",
+      "correct": true,
+      "input_len": 3944,
+      "compressed_len": 1024,
+      "retention_pct": 26.0,
+      "time": 2.719784736633301,
+      "peak_mem_gb": 17.445729732513428,
+      "answer": "Thetransformerarchitecturewasintroducedin2017intheĠpaper\"AttentionisAllYouNeed\"byVaswanietal.ĊOkay,ĠsoĠIĠneedĠtoĠfigureĠoutĠtheĠyearĠtheĠtransformerĠa"
+    },
+    {
+      "question": "What is the default block size used in PagedAttention?",
+      "key_fact": "16",
+      "correct": true,
+      "input_len": 3542,
+      "compressed_len": 1024,
+      "retention_pct": 28.9,
+      "time": 2.6217458248138428,
+      "peak_mem_gb": 17.150700092315674,
+      "answer": "TheĠdefaultĠblockĠsizeĠusedĠinĠPagedĠAttentionĠisĠ16ĠtokensĠperĠblock.ĊOkay,ĠsoĠI'mĠtryingĠtoĠfigureĠoutĠtheĠdefaultĠblockĠsizeĠusedĠinĠPagedĠAttentio"
+    },
+    {
+      "question": "How many threads does a warp consist of in CUDA?",
+      "key_fact": "32",
+      "correct": true,
+      "input_len": 3537,
+      "compressed_len": 1024,
+      "retention_pct": 29.0,
+      "time": 2.624018430709839,
+      "peak_mem_gb": 17.14552879333496,
+      "answer": "32ĊOkay,ĠsoĠI'mĠtryingĠtoĠfigureĠoutĠhowĠmanyĠthreadsĠaĠwarpĠconsistsĠofĠinĠCUDA.ĠIĠrememberĠthatĠCUDAĠisĠaĠparallelĠcomputingĠplatformĠandĠprogrammin"
+    },
+    {
+      "question": "What are the three main stages of the RLHF pipeline?",
+      "key_fact": "supervised fine-tuning",
+      "correct": false,
+      "input_len": 3353,
+      "compressed_len": 1024,
+      "retention_pct": 30.5,
+      "time": 2.602234125137329,
+      "peak_mem_gb": 17.020016193389893,
+      "answer": "Thethreemainstagesare:1.SupervisedFine-Tuning(SFT)2.RewardModelTraining3.ReinforcementLearning(RL)withPPO.Ċ```ĊOkay,ĠsoĠI'mĠtryingĠtoĠunderstandĠtheĠR"
+    }
+  ],
+  "SnapKV-2048": [
+    {
+      "question": "What year was the transformer architecture introduced and in which paper?",
+      "key_fact": "2017",
+      "correct": true,
+      "input_len": 3944,
+      "compressed_len": 2048,
+      "retention_pct": 51.9,
+      "time": 2.6224324703216553,
+      "peak_mem_gb": 17.38508129119873,
+      "answer": "Thetransformerarchitecturewasintroducedin2017intheĠpaper\"AttentionisAllYouNeed\"byVaswanietal.ĊOkay,ĠsoĠIĠneedĠtoĠfigureĠoutĠtheĠyearĠtheĠtransformerĠa"
+    },
+    {
+      "question": "What is the default block size used in PagedAttention?",
+      "key_fact": "16",
+      "correct": true,
+      "input_len": 3542,
+      "compressed_len": 2048,
+      "retention_pct": 57.8,
+      "time": 2.5254580974578857,
+      "peak_mem_gb": 17.13643741607666,
+      "answer": "TheĠdefaultĠblockĠsizeĠusedĠinĠPagedĠAttentionĠisĠ16ĠtokensĠperĠblock.ĊOkay,ĠsoĠI'mĠtryingĠtoĠfigureĠoutĠtheĠdefaultĠblockĠsizeĠusedĠinĠPagedĠAttentio"
+    },
+    {
+      "question": "How many threads does a warp consist of in CUDA?",
+      "key_fact": "32",
+      "correct": true,
+      "input_len": 3537,
+      "compressed_len": 2048,
+      "retention_pct": 57.9,
+      "time": 2.5218968391418457,
+      "peak_mem_gb": 17.134098529815674,
+      "answer": "32ĊOkay,ĠsoĠI'mĠtryingĠtoĠfigureĠoutĠhowĠmanyĠthreadsĠaĠwarpĠconsistsĠofĠinĠCUDA.ĠIĠrememberĠthatĠCUDAĠisĠaĠparallelĠcomputingĠplatform,ĠandĠitĠusesĠs"
+    },
+    {
+      "question": "What are the three main stages of the RLHF pipeline?",
+      "key_fact": "supervised fine-tuning",
+      "correct": false,
+      "input_len": 3353,
+      "compressed_len": 2048,
+      "retention_pct": 61.1,
+      "time": 2.505509376525879,
+      "peak_mem_gb": 17.020016193389893,
+      "answer": "Thethreemainstagesare:1.SupervisedFine-Tuning(SFT)2.RewardModelTraining3.ReinforcementLearning(RL)withPPO.Ċ```ĊOkay,ĠsoĠI'mĠtryingĠtoĠunderstandĠtheĠR"
+    }
+  ]
+}
