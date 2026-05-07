@@ -1,0 +1,91 @@
+{
+  "baseline": [
+    {
+      "test_case": 1,
+      "question": "What year was the transformer architecture introduced?",
+      "expected": "2017",
+      "baseline": {
+        "answer": "2017\u010aOkay,\u0120so\u0120I\u0120need\u0120to\u0120figure\u0120out\u0120when\u0120the\u0120transformer\u0120architecture\u0120was\u0120introduced.\u0120I\u0120remember\u0120hearing\u0120about\u0120transformers\u0120in\u0120the\u0120context\u0120of\u0120machine\u0120learning,\u0120especially\u0120with\u0120natural\u0120language\u0120processing.\u0120I\u0120think\u0120it\u0120was\u0120around\u01202017\u0120because\u0120I've\u0120seen\u0120papers\u0120from",
+        "time": 2.6618049144744873,
+        "mem_used_gb": 0.007977485656738281,
+        "input_len": 5677
+      }
+    },
+    {
+      "test_case": 2,
+      "question": "What is the default block size used in PagedAttention?",
+      "expected": "16 tokens",
+      "baseline": {
+        "answer": "16tokensperblock.\u010a</think>\u010a\u010aThe\u0120default\u0120block\u0120size\u0120used\u0120in\u0120Paged\u0120Attention\u0120is\u0120**16\u0120tokens\u0120per\u0120block**.\u0120This\u0120size\u0120is\u0120chosen\u0120to\u0120balance\u0120between\u0120the\u0120number\u0120of\u0120tokens\u0120each\u0120block\u0120can\u0120hold\u0120and\u0120the\u0120overhead\u0120of\u0120managing\u0120the\u0120block\u0120table,\u0120ensuring\u0120efficient",
+        "time": 1.7402362823486328,
+        "mem_used_gb": 3.719329833984375e-05,
+        "input_len": 4918
+      }
+    }
+  ],
+  "snapkv": [
+    {
+      "config": "SnapKV-512  (~9% budget)",
+      "cases": [
+        {
+          "question": "What year was the transformer architecture introduced?",
+          "expected": "2017",
+          "got": "2017\u010aOkay,\u0120so\u0120I\u0120need\u0120to\u0120figure\u0120out\u0120when\u0120the\u0120transformer\u0120architecture\u0120was\u0120introduced.\u0120I\u0120remember\u0120hear",
+          "correct": true,
+          "time": 2.261425018310547,
+          "baseline_time": 2.6618049144744873
+        },
+        {
+          "question": "What is the default block size used in PagedAttention?",
+          "expected": "16 tokens",
+          "got": "16tokensperblock.\u010a</think>\u010a\u010aThe\u0120default\u0120block\u0120size\u0120used\u0120in\u0120Paged\u0120Attention\u0120is\u0120**16\u0120tokens\u0120per\u0120block*",
+          "correct": false,
+          "time": 1.741089105606079,
+          "baseline_time": 1.7402362823486328
+        }
+      ]
+    },
+    {
+      "config": "SnapKV-1024 (~18% budget)",
+      "cases": [
+        {
+          "question": "What year was the transformer architecture introduced?",
+          "expected": "2017",
+          "got": "2017\u010aOkay,\u0120so\u0120I\u0120need\u0120to\u0120figure\u0120out\u0120when\u0120the\u0120transformer\u0120architecture\u0120was\u0120introduced.\u0120I\u0120remember\u0120hear",
+          "correct": true,
+          "time": 1.8351256847381592,
+          "baseline_time": 2.6618049144744873
+        },
+        {
+          "question": "What is the default block size used in PagedAttention?",
+          "expected": "16 tokens",
+          "got": "16tokensperblock.\u010a</think>\u010a\u010aThe\u0120default\u0120block\u0120size\u0120used\u0120in\u0120Paged\u0120Attention\u0120is\u0120**16\u0120tokens\u0120per\u0120block*",
+          "correct": false,
+          "time": 1.74361252784729,
+          "baseline_time": 1.7402362823486328
+        }
+      ]
+    },
+    {
+      "config": "SnapKV-2048 (~36% budget)",
+      "cases": [
+        {
+          "question": "What year was the transformer architecture introduced?",
+          "expected": "2017",
+          "got": "2017\u010aOkay,\u0120so\u0120I\u0120need\u0120to\u0120figure\u0120out\u0120when\u0120the\u0120transformer\u0120architecture\u0120was\u0120introduced.\u0120I\u0120remember\u0120hear",
+          "correct": true,
+          "time": 1.8371779918670654,
+          "baseline_time": 2.6618049144744873
+        },
+        {
+          "question": "What is the default block size used in PagedAttention?",
+          "expected": "16 tokens",
+          "got": "16tokensperblock.\u010a</think>\u010a\u010aThe\u0120default\u0120block\u0120size\u0120used\u0120in\u0120Paged\u0120Attention\u0120is\u0120**16\u0120tokens\u0120per\u0120block*",
+          "correct": false,
+          "time": 1.745690107345581,
+          "baseline_time": 1.7402362823486328
+        }
+      ]
+    }
+  ]
+}

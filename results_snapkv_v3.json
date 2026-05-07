@@ -1,0 +1,59 @@
+[
+  {
+    "config": "SnapKV-512",
+    "cases": [
+      {
+        "question": "What year was the transformer architecture introduced?",
+        "correct": false,
+        "time": 2.020164966583252,
+        "baseline_time": 2.6618049144744873,
+        "peak_mem_gb": 15.432994842529297
+      },
+      {
+        "question": "What is the default block size used in PagedAttention?",
+        "correct": false,
+        "time": 1.452150583267212,
+        "baseline_time": 1.7402362823486328,
+        "peak_mem_gb": 15.465020179748535
+      }
+    ]
+  },
+  {
+    "config": "SnapKV-1024",
+    "cases": [
+      {
+        "question": "What year was the transformer architecture introduced?",
+        "correct": false,
+        "time": 1.5138967037200928,
+        "baseline_time": 2.6618049144744873,
+        "peak_mem_gb": 15.783329010009766
+      },
+      {
+        "question": "What is the default block size used in PagedAttention?",
+        "correct": false,
+        "time": 1.5395677089691162,
+        "baseline_time": 1.7402362823486328,
+        "peak_mem_gb": 15.838116645812988
+      }
+    ]
+  },
+  {
+    "config": "SnapKV-2048",
+    "cases": [
+      {
+        "question": "What year was the transformer architecture introduced?",
+        "correct": true,
+        "time": 1.3871078491210938,
+        "baseline_time": 2.6618049144744873,
+        "peak_mem_gb": 15.413554668426514
+      },
+      {
+        "question": "What is the default block size used in PagedAttention?",
+        "correct": false,
+        "time": 1.7146077156066895,
+        "baseline_time": 1.7402362823486328,
+        "peak_mem_gb": 16.582085609436035
+      }
+    ]
+  }
+]
