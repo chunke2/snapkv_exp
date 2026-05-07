@@ -1,0 +1,372 @@
+{
+  "Baseline": [
+    {
+      "section": "Abstract",
+      "question": "What year is the WMT English-to-French translation task that the model was evaluated on?",
+      "expected": "2014",
+      "got": "2014.English-to-French task-specificallyearlierumbersusereval2014.```\nOkay,thoroughly,throu",
+      "correct": true,
+      "input_len": 1545,
+      "compressed_len": 1545,
+      "retention_pct": 100.0,
+      "time": 1.6631748676300049,
+      "peak_mem_gb": 16.265361309051514
+    },
+    {
+      "section": "Introduction",
+      "question": "The Transformer avoids recurrence by using what mechanism to capture global dependencies?",
+      "expected": "attention mechanisms|Attention mechanisms|attention",
+      "got": "Attention mechanisms like attention mechanism\nOkay,attention:Attention mechanism,attention mechanism",
+      "correct": true,
+      "input_len": 1539,
+      "compressed_len": 1539,
+      "retention_pct": 100.0,
+      "time": 1.195054531097412,
+      "peak_mem_gb": 16.260036945343018
+    },
+    {
+      "section": "Attention",
+      "question": "In the Scaled Dot-Product Attention formula, what do we divide the dot products by?",
+      "expected": "sqrt(dk)|sqrt(d",
+      "got": "Inthequery(QKeweb dividedthedotproductsoforsimproceedingeneral,we dividedthequery,we dividebydiv",
+      "correct": false,
+      "input_len": 1542,
+      "compressed_len": 1542,
+      "retention_pct": 100.0,
+      "time": 1.196779727935791,
+      "peak_mem_gb": 16.26333236694336
+    },
+    {
+      "section": "Positional Encoding",
+      "question": "Positional encodings are added to the input embeddings at the what of the encoder and decoder stacks?",
+      "expected": "bottoms|bottom|encoder and decoder",
+      "got": "Positionalway below the bottom of the bottom of the encoder and thenumberserlatchestopin pos=Thedits",
+      "correct": true,
+      "input_len": 1545,
+      "compressed_len": 1545,
+      "retention_pct": 100.0,
+      "time": 1.1939172744750977,
+      "peak_mem_gb": 16.265148162841797
+    },
+    {
+      "section": "Training",
+      "question": "What is the label smoothing value eps_ls used during training?",
+      "expected": "0.1",
+      "got": "0.1.1.1.1.1.1.1.1.**</answithebasically,eps_ls=>",
+      "correct": true,
+      "input_len": 1536,
+      "compressed_len": 1536,
+      "retention_pct": 100.0,
+      "time": 1.1793136596679688,
+      "peak_mem_gb": 16.25750207901001
+    },
+    {
+      "section": "Results",
+      "question": "How long did it take to train the big transformer model on 8 P100 GPUs?",
+      "expected": "3.5 days|3.5days|3.5",
+      "got": "Ittook3.5,itis trained for the big transformer big transformer big transformer models\nOkay,trainingt",
+      "correct": true,
+      "input_len": 1542,
+      "compressed_len": 1542,
+      "retention_pct": 100.0,
+      "time": 1.19840669631958,
+      "peak_mem_gb": 16.26333236694336
+    }
+  ],
+  "SnapKV-128": [
+    {
+      "section": "Abstract",
+      "question": "What year is the WMT English-to-French translation task that the model was evaluated on?",
+      "expected": "2014",
+      "got": "2014\n\nOkay, so I need to figure out the year of the WMT English-to-French translation task that the ",
+      "correct": true,
+      "input_len": 1545,
+      "compressed_len": 128,
+      "retention_pct": 8.3,
+      "time": 1.098299503326416,
+      "peak_mem_gb": 16.038143157958984
+    },
+    {
+      "section": "Introduction",
+      "question": "The Transformer avoids recurrence by using what mechanism to capture global dependencies?",
+      "expected": "attention mechanisms|Attention mechanisms|attention",
+      "got": "Attention mechanisms.\n\nOkay, so I'm trying to understand how The Transformer avoids recurrence by us",
+      "correct": true,
+      "input_len": 1539,
+      "compressed_len": 128,
+      "retention_pct": 8.3,
+      "time": 1.0099828243255615,
+      "peak_mem_gb": 16.035152912139893
+    },
+    {
+      "section": "Attention",
+      "question": "In the Scaled Dot-Product Attention formula, what do we divide the dot products by?",
+      "expected": "sqrt(dk)|sqrt(d",
+      "got": "IntheScaledDot-ProductAttention,wecomputedthedotproductsofthequerywithallkeys,thenwe dividedeachbyâĪ",
+      "correct": false,
+      "input_len": 1542,
+      "compressed_len": 128,
+      "retention_pct": 8.3,
+      "time": 1.0148351192474365,
+      "peak_mem_gb": 16.03111982345581
+    },
+    {
+      "section": "Positional Encoding",
+      "question": "Positional encodings are added to the input embeddings at the what of the encoder and decoder stacks?",
+      "expected": "bottoms|bottom|encoder and decoder",
+      "got": "Positionalencodingsareaddedtotheinputembeddingsatthewhatoftheencoderanddecoderstacks.\n\nOkay, so I'm ",
+      "correct": true,
+      "input_len": 1545,
+      "compressed_len": 128,
+      "retention_pct": 8.3,
+      "time": 1.0108413696289062,
+      "peak_mem_gb": 16.035358428955078
+    },
+    {
+      "section": "Training",
+      "question": "What is the label smoothing value eps_ls used during training?",
+      "expected": "0.1",
+      "got": "0.1\n\nOkay, so I need to figure out what the label smoothing value eps_ls is used during training. I'",
+      "correct": true,
+      "input_len": 1536,
+      "compressed_len": 128,
+      "retention_pct": 8.3,
+      "time": 0.9979157447814941,
+      "peak_mem_gb": 16.031010150909424
+    },
+    {
+      "section": "Results",
+      "question": "How long did it take to train the big transformer model on 8 P100 GPUs?",
+      "expected": "3.5 days|3.5days|3.5",
+      "got": "Ittook3.5dayson8P100GPUs.\n\nOkay, so I need to figure out how long it took to train the big transform",
+      "correct": true,
+      "input_len": 1542,
+      "compressed_len": 128,
+      "retention_pct": 8.3,
+      "time": 1.0127558708190918,
+      "peak_mem_gb": 16.03501844406128
+    }
+  ],
+  "SnapKV-256": [
+    {
+      "section": "Abstract",
+      "question": "What year is the WMT English-to-French translation task that the model was evaluated on?",
+      "expected": "2014",
+      "got": "2014\n\nOkay, so I need to figure out the year when the WMT English-to-French translation task was eva",
+      "correct": true,
+      "input_len": 1545,
+      "compressed_len": 256,
+      "retention_pct": 16.6,
+      "time": 1.0072507858276367,
+      "peak_mem_gb": 15.996892929077148
+    },
+    {
+      "section": "Introduction",
+      "question": "The Transformer avoids recurrence by using what mechanism to capture global dependencies?",
+      "expected": "attention mechanisms|Attention mechanisms|attention",
+      "got": "Attention mechanisms.\n\nOkay, so I'm trying to understand how the Transformer avoids recurrence by us",
+      "correct": true,
+      "input_len": 1539,
+      "compressed_len": 256,
+      "retention_pct": 16.6,
+      "time": 1.0028958320617676,
+      "peak_mem_gb": 15.994089603424072
+    },
+    {
+      "section": "Attention",
+      "question": "In the Scaled Dot-Product Attention formula, what do we divide the dot products by?",
+      "expected": "sqrt(dk)|sqrt(d",
+      "got": "IntheScaledDot-ProductAttention,wecomputethedotproductsofthequerywithallkeys,divideeachbysqrt(dk),",
+      "correct": true,
+      "input_len": 1542,
+      "compressed_len": 256,
+      "retention_pct": 16.6,
+      "time": 1.003890037536621,
+      "peak_mem_gb": 15.99411678314209
+    },
+    {
+      "section": "Positional Encoding",
+      "question": "Positional encodings are added to the input embeddings at the what of the encoder and decoder stacks?",
+      "expected": "bottoms|bottom|encoder and decoder",
+      "got": "Positionalencodingsareaddedtotheinputembeddingsatthewhatoftheencoderanddecoderstacks.\n\nOkay, so I'm ",
+      "correct": true,
+      "input_len": 1545,
+      "compressed_len": 256,
+      "retention_pct": 16.6,
+      "time": 1.006596565246582,
+      "peak_mem_gb": 15.995925903320312
+    },
+    {
+      "section": "Training",
+      "question": "What is the label smoothing value eps_ls used during training?",
+      "expected": "0.1",
+      "got": "0.1\n\nOkay, so I need to figure out what the label smoothing value eps_ls is used during training. I'",
+      "correct": true,
+      "input_len": 1536,
+      "compressed_len": 256,
+      "retention_pct": 16.7,
+      "time": 0.9832353591918945,
+      "peak_mem_gb": 16.00238275527954
+    },
+    {
+      "section": "Results",
+      "question": "How long did it take to train the big transformer model on 8 P100 GPUs?",
+      "expected": "3.5 days|3.5days|3.5",
+      "got": "Ittook3.5dayson8P100GPUs.\n\nOkay, so I'm trying to figure out how long it took to train the big",
+      "correct": true,
+      "input_len": 1542,
+      "compressed_len": 256,
+      "retention_pct": 16.6,
+      "time": 1.0027060508728027,
+      "peak_mem_gb": 15.9954252243042
+    }
+  ],
+  "SnapKV-512": [
+    {
+      "section": "Abstract",
+      "question": "What year is the WMT English-to-French translation task that the model was evaluated on?",
+      "expected": "2014",
+      "got": "2014\n\nOkay, so I need to figure out the year when the WMT English-to-French translation task was eva",
+      "correct": true,
+      "input_len": 1545,
+      "compressed_len": 512,
+      "retention_pct": 33.1,
+      "time": 0.9822065830230713,
+      "peak_mem_gb": 15.9129638671875
+    },
+    {
+      "section": "Introduction",
+      "question": "The Transformer avoids recurrence by using what mechanism to capture global dependencies?",
+      "expected": "attention mechanisms|Attention mechanisms|attention",
+      "got": "Attention mechanisms.\n\nOkay, so I'm trying to understand how the Transformer avoids recurrence by us",
+      "correct": true,
+      "input_len": 1539,
+      "compressed_len": 512,
+      "retention_pct": 33.3,
+      "time": 0.9794843196868896,
+      "peak_mem_gb": 15.90848684310913
+    },
+    {
+      "section": "Attention",
+      "question": "In the Scaled Dot-Product Attention formula, what do we divide the dot products by?",
+      "expected": "sqrt(dk)|sqrt(d",
+      "got": "We divided each dot product by sqrt(dk), where dk is the dimension of the keys.\n\nOkay, so I'm trying",
+      "correct": true,
+      "input_len": 1542,
+      "compressed_len": 512,
+      "retention_pct": 33.2,
+      "time": 0.9809708595275879,
+      "peak_mem_gb": 15.912744522094727
+    },
+    {
+      "section": "Positional Encoding",
+      "question": "Positional encodings are added to the input embeddings at the what of the encoder and decoder stacks?",
+      "expected": "bottoms|bottom|encoder and decoder",
+      "got": "Positionalencodingsareaddedtotheinputembeddingsatthewhatoftheencoderanddecoderstacks.\n\nOkay, so I'm ",
+      "correct": true,
+      "input_len": 1545,
+      "compressed_len": 512,
+      "retention_pct": 33.1,
+      "time": 0.9847977161407471,
+      "peak_mem_gb": 15.912210464477539
+    },
+    {
+      "section": "Training",
+      "question": "What is the label smoothing value eps_ls used during training?",
+      "expected": "0.1",
+      "got": "0.1\n\nOkay, so I need to figure out what the label smoothing value eps_ls is used during training. I'",
+      "correct": true,
+      "input_len": 1536,
+      "compressed_len": 512,
+      "retention_pct": 33.3,
+      "time": 0.9630365371704102,
+      "peak_mem_gb": 15.906647682189941
+    },
+    {
+      "section": "Results",
+      "question": "How long did it take to train the big transformer model on 8 P100 GPUs?",
+      "expected": "3.5 days|3.5days|3.5",
+      "got": "Ittook3.5dayson8P100GPUs.\n\nOkay, so I'm trying to figure out how long it took to train the big",
+      "correct": true,
+      "input_len": 1542,
+      "compressed_len": 512,
+      "retention_pct": 33.2,
+      "time": 0.9812629222869873,
+      "peak_mem_gb": 15.912836074829102
+    }
+  ],
+  "SnapKV-1024": [
+    {
+      "section": "Abstract",
+      "question": "What year is the WMT English-to-French translation task that the model was evaluated on?",
+      "expected": "2014",
+      "got": "2014\n\nOkay, so I need to figure out the year when the WMT English-to-French translation task was eva",
+      "correct": true,
+      "input_len": 1545,
+      "compressed_len": 1024,
+      "retention_pct": 66.3,
+      "time": 0.9470860958099365,
+      "peak_mem_gb": 15.917210578918457
+    },
+    {
+      "section": "Introduction",
+      "question": "The Transformer avoids recurrence by using what mechanism to capture global dependencies?",
+      "expected": "attention mechanisms|Attention mechanisms|attention",
+      "got": "Attention mechanisms.\n\nOkay, so I'm trying to understand how the Transformer avoids recurrence by us",
+      "correct": true,
+      "input_len": 1539,
+      "compressed_len": 1024,
+      "retention_pct": 66.5,
+      "time": 0.9354965686798096,
+      "peak_mem_gb": 15.91174030303955
+    },
+    {
+      "section": "Attention",
+      "question": "In the Scaled Dot-Product Attention formula, what do we divide the dot products by?",
+      "expected": "sqrt(dk)|sqrt(d",
+      "got": "IntheScaledDot-ProductAttention,wecomputedthedotproductsofthequerywithallkeys,thenwe dividedeachbyâĪ",
+      "correct": false,
+      "input_len": 1542,
+      "compressed_len": 1024,
+      "retention_pct": 66.4,
+      "time": 0.9348173141479492,
+      "peak_mem_gb": 15.915505409240723
+    },
+    {
+      "section": "Positional Encoding",
+      "question": "Positional encodings are added to the input embeddings at the what of the encoder and decoder stacks?",
+      "expected": "bottoms|bottom|encoder and decoder",
+      "got": "Positionalencodingsareaddedtotheinputembeddingsatthewhatoftheencoderanddecoderstacks.\n\nOkay, so I'm ",
+      "correct": true,
+      "input_len": 1545,
+      "compressed_len": 1024,
+      "retention_pct": 66.3,
+      "time": 0.9362897872924805,
+      "peak_mem_gb": 15.916388511657715
+    },
+    {
+      "section": "Training",
+      "question": "What is the label smoothing value eps_ls used during training?",
+      "expected": "0.1",
+      "got": "0.1\n\nOkay, so I need to figure out what the label smoothing value eps_ls is used during training. I'",
+      "correct": true,
+      "input_len": 1536,
+      "compressed_len": 1024,
+      "retention_pct": 66.7,
+      "time": 0.918062686920166,
+      "peak_mem_gb": 15.934256076812744
+    },
+    {
+      "section": "Results",
+      "question": "How long did it take to train the big transformer model on 8 P100 GPUs?",
+      "expected": "3.5 days|3.5days|3.5",
+      "got": "Ittook3.5dayson8P100GPUs.\n\nOkay, so I need to figure out how long it took to train the big transform",
+      "correct": true,
+      "input_len": 1542,
+      "compressed_len": 1024,
+      "retention_pct": 66.4,
+      "time": 0.9356667995452881,
+      "peak_mem_gb": 15.915505409240723
+    }
+  ]
+}
