@@ -287,7 +287,7 @@ TEST_CASES = [
         "text_key": "rlhf",
         "question": "What are the three main stages of the RLHF pipeline?",
         "answer": "SFT, reward model training, RL",
-        "key_fact": "supervised fine-tuning"
+        "key_fact": "SFT"
     },
 ]
 

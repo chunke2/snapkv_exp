@@ -7,7 +7,7 @@
       "input_len": 3944,
       "compressed_len": 3944,
       "retention_pct": 100.0,
-      "time": 4.7674641609191895,
+      "time": 4.762090444564819,
       "peak_mem_gb": 18.304210662841797,
       "answer": "ThetranswasmuchĠasĠperĠtheĠtransformerĠarchitectureĠofĠthetransformerly,Ġthetransformerly,Ġthetransformerly,whichpaper:\"TheĠtransformerĠarchitectureĠo"
     },
@@ -18,7 +18,7 @@
       "input_len": 3542,
       "compressed_len": 3542,
       "retention_pct": 100.0,
-      "time": 4.0156285762786865,
+      "time": 4.012395620346069,
       "peak_mem_gb": 17.958126068115234,
       "answer": "16tokensperĠtheĠdefaultĠblock_size=16tokensperblocksizeof16tokensperblocksizeĠofĠtheĠdefaultblocksizeof16tokensper-tokensper-tokensper-tokensper-token"
     },
@@ -29,18 +29,18 @@
       "input_len": 3537,
       "compressed_len": 3537,
       "retention_pct": 100.0,
-      "time": 4.016772270202637,
+      "time": 4.011599063873291,
       "peak_mem_gb": 17.953869342803955,
       "answer": "32ĊOkay,ĠinĠCUDA(Ġ)ĊOkay,Ġwhichis32ĊOkay,wherĊOkay,whichCUDA(ComputeUnifiedDeviceĠArchitecture:CUDA(ComputeUnifiedDeviceĠArchitecture:CUDA(ComputeUnif"
     },
     {
       "question": "What are the three main stages of the RLHF pipeline?",
-      "key_fact": "supervised fine-tuning",
+      "key_fact": "SFT",
       "correct": false,
       "input_len": 3353,
       "compressed_len": 3353,
       "retention_pct": 100.0,
-      "time": 3.8822121620178223,
+      "time": 3.895263671875,
       "peak_mem_gb": 17.797258853912354,
       "answer": "Thethreinvoluntary1.ĠTheĠthreeĠmainĠstagesofthebasically,orrespondingeneralized,thereforevertext:First,supdatadoptionallyingatheringhumaĊĊOkay,whichar"
     }
@@ -53,7 +53,7 @@
       "input_len": 3944,
       "compressed_len": 512,
       "retention_pct": 13.0,
-      "time": 2.866956949234009,
+      "time": 2.87349796295166,
       "peak_mem_gb": 17.626808643341064,
       "answer": "Thetransformerarchitecturewasintroducedin2017intheĠpaper\"AttentionisAllYouNeed\"byVaswanietal.ĊOkay,ĠsoĠIĠneedĠtoĠfigureĠoutĠtheĠyearĠtheĠtransformerĠa"
     },
@@ -64,7 +64,7 @@
       "input_len": 3542,
       "compressed_len": 512,
       "retention_pct": 14.5,
-      "time": 2.6742961406707764,
+      "time": 2.6698415279388428,
       "peak_mem_gb": 17.332276821136475,
       "answer": "16tokensperblock.ĊOkay,ĠsoĠI'mĠtryingĠtoĠfigureĠoutĠtheĠdefaultĠblockĠsizeĠusedĠinĠPagedĠAttention.ĠIĠrememberĠreadingĠthatĠPagedĠAttentionĠisĠaĠpartĠ"
     },
@@ -75,18 +75,18 @@
       "input_len": 3537,
       "compressed_len": 512,
       "retention_pct": 14.5,
-      "time": 2.668823719024658,
+      "time": 2.677990436553955,
       "peak_mem_gb": 17.32887554168701,
       "answer": "32ĊOkay,ĠsoĠI'mĠtryingĠtoĠfigureĠoutĠhowĠmanyĠthreadsĠaĠwarpĠconsistsĠofĠinĠCUDA.ĠIĠrememberĠthatĠCUDAĠisĠaĠparallelĠcomputingĠplatformĠfromĠNVIDIA,Ġa"
     },
     {
       "question": "What are the three main stages of the RLHF pipeline?",
-      "key_fact": "supervised fine-tuning",
-      "correct": false,
+      "key_fact": "SFT",
+      "correct": true,
       "input_len": 3353,
       "compressed_len": 512,
       "retention_pct": 15.3,
-      "time": 2.6463942527770996,
+      "time": 2.648052453994751,
       "peak_mem_gb": 17.200231075286865,
       "answer": "Thethreemainstagesare:1.SupervisedFine-Tuning(SFT)2.RewardModelTraining3.ReinforcementLearning(RL)withPPO.Ċ```ĊAlright,ĠsoĠI'mĠtryingĠtoĠunderstandĠth"
     }
@@ -99,7 +99,7 @@
       "input_len": 3944,
       "compressed_len": 1024,
       "retention_pct": 26.0,
-      "time": 2.719784736633301,
+      "time": 2.714338779449463,
       "peak_mem_gb": 17.445729732513428,
       "answer": "Thetransformerarchitecturewasintroducedin2017intheĠpaper\"AttentionisAllYouNeed\"byVaswanietal.ĊOkay,ĠsoĠIĠneedĠtoĠfigureĠoutĠtheĠyearĠtheĠtransformerĠa"
     },
@@ -110,7 +110,7 @@
       "input_len": 3542,
       "compressed_len": 1024,
       "retention_pct": 28.9,
-      "time": 2.6217458248138428,
+      "time": 2.6202664375305176,
       "peak_mem_gb": 17.150700092315674,
       "answer": "TheĠdefaultĠblockĠsizeĠusedĠinĠPagedĠAttentionĠisĠ16ĠtokensĠperĠblock.ĊOkay,ĠsoĠI'mĠtryingĠtoĠfigureĠoutĠtheĠdefaultĠblockĠsizeĠusedĠinĠPagedĠAttentio"
     },
@@ -121,18 +121,18 @@
       "input_len": 3537,
       "compressed_len": 1024,
       "retention_pct": 29.0,
-      "time": 2.624018430709839,
+      "time": 2.6283910274505615,
       "peak_mem_gb": 17.14552879333496,
       "answer": "32ĊOkay,ĠsoĠI'mĠtryingĠtoĠfigureĠoutĠhowĠmanyĠthreadsĠaĠwarpĠconsistsĠofĠinĠCUDA.ĠIĠrememberĠthatĠCUDAĠisĠaĠparallelĠcomputingĠplatformĠandĠprogrammin"
     },
     {
       "question": "What are the three main stages of the RLHF pipeline?",
-      "key_fact": "supervised fine-tuning",
-      "correct": false,
+      "key_fact": "SFT",
+      "correct": true,
       "input_len": 3353,
       "compressed_len": 1024,
       "retention_pct": 30.5,
-      "time": 2.602234125137329,
+      "time": 2.5993552207946777,
       "peak_mem_gb": 17.020016193389893,
       "answer": "Thethreemainstagesare:1.SupervisedFine-Tuning(SFT)2.RewardModelTraining3.ReinforcementLearning(RL)withPPO.Ċ```ĊOkay,ĠsoĠI'mĠtryingĠtoĠunderstandĠtheĠR"
     }
@@ -145,7 +145,7 @@
       "input_len": 3944,
       "compressed_len": 2048,
       "retention_pct": 51.9,
-      "time": 2.6224324703216553,
+      "time": 2.6119539737701416,
       "peak_mem_gb": 17.38508129119873,
       "answer": "Thetransformerarchitecturewasintroducedin2017intheĠpaper\"AttentionisAllYouNeed\"byVaswanietal.ĊOkay,ĠsoĠIĠneedĠtoĠfigureĠoutĠtheĠyearĠtheĠtransformerĠa"
     },
@@ -156,7 +156,7 @@
       "input_len": 3542,
       "compressed_len": 2048,
       "retention_pct": 57.8,
-      "time": 2.5254580974578857,
+      "time": 2.5225839614868164,
       "peak_mem_gb": 17.13643741607666,
       "answer": "TheĠdefaultĠblockĠsizeĠusedĠinĠPagedĠAttentionĠisĠ16ĠtokensĠperĠblock.ĊOkay,ĠsoĠI'mĠtryingĠtoĠfigureĠoutĠtheĠdefaultĠblockĠsizeĠusedĠinĠPagedĠAttentio"
     },
@@ -167,18 +167,18 @@
       "input_len": 3537,
       "compressed_len": 2048,
       "retention_pct": 57.9,
-      "time": 2.5218968391418457,
+      "time": 2.5269570350646973,
       "peak_mem_gb": 17.134098529815674,
       "answer": "32ĊOkay,ĠsoĠI'mĠtryingĠtoĠfigureĠoutĠhowĠmanyĠthreadsĠaĠwarpĠconsistsĠofĠinĠCUDA.ĠIĠrememberĠthatĠCUDAĠisĠaĠparallelĠcomputingĠplatform,ĠandĠitĠusesĠs"
     },
     {
       "question": "What are the three main stages of the RLHF pipeline?",
-      "key_fact": "supervised fine-tuning",
-      "correct": false,
+      "key_fact": "SFT",
+      "correct": true,
       "input_len": 3353,
       "compressed_len": 2048,
       "retention_pct": 61.1,
-      "time": 2.505509376525879,
+      "time": 2.502894878387451,
       "peak_mem_gb": 17.020016193389893,
       "answer": "Thethreemainstagesare:1.SupervisedFine-Tuning(SFT)2.RewardModelTraining3.ReinforcementLearning(RL)withPPO.Ċ```ĊOkay,ĠsoĠI'mĠtryingĠtoĠunderstandĠtheĠR"
     }
