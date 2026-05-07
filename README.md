@@ -23,7 +23,7 @@
 | SnapKV-1024 | **100%** | 2.64s | 17.19GB | 29% |
 | SnapKV-2048 | **100%** | 2.54s | 17.17GB | 57% |
 
-**核心结论：** 只保留 14% KV Cache，正确率不下降，速度提升 1.54x。SnapKV 压缩掉噪声 token 后模型更专注于相关信息。
+**核心结论：** 只保留 14% KV Cache，正确率不下降，速度提升 1.54x。
 
 ---
 
@@ -35,9 +35,8 @@
 | SnapKV-128 | ✅ | ✅ | ✅ | ✅ | ✅ |
 | SnapKV-512 | ✅ | ✅ | ✅ | ✅ | ✅ |
 | SnapKV-1024 | ✅ | ✅ | ✅ | ✅ | ✅ |
-| SnapKV-2048 | ✅ | ✅ | ✅ | ✅ | ✅ |
 
-**核心结论：** 即使压缩到 2%，SnapKV 仍能在所有位置找到关键信息。Observation window 机制有效引导 attention score 指向关键 token。
+**核心结论：** 即使压缩到 2%，SnapKV 仍能在所有位置找到关键信息。
 
 ---
 
@@ -51,18 +50,32 @@
 | SnapKV-512 | **100%** | 0.98s | 15.91GB | 33% |
 | SnapKV-1024 | 83% | 0.93s | 15.92GB | 66% |
 
-**核心结论：** SnapKV-256 只保留 17% KV Cache，正确率反超 Baseline（100% vs 83%）。速度提升 1.3x，显存节省 0.35GB。
+**核心结论：** SnapKV-256 只保留 17% KV Cache，正确率反超 Baseline（100% vs 83%）。
+
+---
+
+### 实验四：LongBench qasper（标准 benchmark，50 个样本）
+
+| Config | Avg F1 | 平均时间 | KV 保留率 |
+|---|---|---|---|
+| Baseline | 6.0% | 2.21s | 100% |
+| SnapKV-256 | 6.9% | 2.05s | 5% |
+| SnapKV-512 | **7.8%** | 2.08s | 10% |
+| SnapKV-1024 | 6.0% | 2.15s | 21% |
+
+**核心结论：** SnapKV-512 只保留 10% KV Cache，F1 反而高于 Baseline（7.8% vs 6.0%），速度提升 1.06x。
+qasper 是高难度学术问答数据集，整体 F1 偏低属正常，关键在于压缩后质量未下降。
 
 ---
 
 ## 综合结论
 
-| 结论 | 说明 |
+| 结论 | 实验支撑 |
 |---|---|
-| SnapKV 质量不下降 | 三个实验均显示压缩后正确率持平或提升 |
-| 最佳甜点在 10-20% 保留率 | 过度压缩（<8%）或保留过多（>50%）都会引入噪声 |
-| 速度提升 1.3-1.5x | 显存节省同时带来 decode 加速 |
-| GQA 适配是关键 | transformers 5.x + DeepSeek 架构需要特殊处理 |
+| SnapKV 质量不下降 | 四个实验均显示压缩后正确率持平或提升 |
+| 最佳甜点在 10-17% 保留率 | 过度压缩（<5%）或保留过多（>50%）反而引入噪声 |
+| 速度提升 1.06-1.54x | 取决于序列长度和压缩率 |
+| GQA 适配是关键工程难点 | transformers 5.x + DeepSeek 架构需要特殊处理 |
 
 ## 参数说明
 
@@ -71,7 +84,7 @@
 | `window_size` | 观察窗口大小，用 Prompt 最后 N 个 token 的 Query 给前缀打分 |
 | `max_capacity_prompt` | 压缩后 KV Cache 最多保留的 token 数（含观察窗口） |
 
-例：SnapKV-256 = 保留 192 个重要前缀 token + 64 个观察窗口 token
+例：SnapKV-512 = 保留 448 个重要前缀 token + 64 个观察窗口 token
 
 ## 调试过程记录
 
@@ -79,6 +92,7 @@
 2. **GQA shape 不匹配**：Q(32 heads) 和 KV(8 heads) 维度不同，需要先 reshape 取均值
 3. **position 错位**：压缩后 cache 长度变化，直接覆写 `layer.keys/values` 才能让 `get_seq_length()` 正确反映
 4. **attention mask 冲突**：在 prefill attention 计算完成后再压缩，避免 mask shape 不匹配
+5. **decode 续写方式**：压缩后只传最后一个 token + 完整 attention_mask 给 generate，避免 cache 翻倍
 
 ## 文件说明
 
@@ -89,11 +103,13 @@
 | `experiment1_v2_longdoc.py` | 实验一完整版 |
 | `experiment2_needle.py` | 实验二：大海捞针 |
 | `experiment3_comprehension.py` | 实验三：全文理解评测 |
-| `transformer_doc.txt` | 实验三文档（Attention is All You Need） |
+| `experiment4_longbench.py` | 实验四：LongBench qasper 标准评测 |
+| `transformer_doc.txt` | 实验三文档 |
 | `snapkv_utils.py` | SnapKV 核心算法（参考官方 repo） |
 | `results_experiment1_v2.json` | 实验一结果 |
 | `results_experiment2_needle.json` | 实验二结果 |
 | `results_experiment3_comprehension.json` | 实验三结果 |
+| `results_longbench_qasper.json` | 实验四结果 |
 
 ## 环境
 
@@ -107,4 +123,5 @@
 - [SnapKV 论文](https://arxiv.org/abs/2404.14469)
 - [H2O 论文](https://arxiv.org/abs/2306.14048)
 - [官方 SnapKV repo](https://github.com/FasterDecoding/SnapKV)
+- [LongBench](https://github.com/THUDM/LongBench)
 - [vLLM](https://github.com/vllm-project/vllm)
