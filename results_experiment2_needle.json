@@ -1,0 +1,216 @@
+{
+  "needle": "In a related experiment, researchers recorded the value 93810 as the baseline measurement.",
+  "secret_code": "93810",
+  "results": {
+    "开头 (0%)": {
+      "Baseline": {
+        "correct": true,
+        "answer": "Theyrecordedits93810ĊOkay,Ġtheyrecordedocument:93810ĊĊOkay,theyrecordedinthebaselatedocument:ĠThe",
+        "input_len": 5531,
+        "compressed_len": 5531,
+        "retention_pct": 100.0,
+        "time": 3.37530517578125
+      },
+      "SnapKV-128": {
+        "correct": true,
+        "answer": "Theyrecorded93810-0001asĠtheĠbaselineĠmeasurement.Ċ</think>ĊĊTheĠresearchersĠrecordedĠ**93810-0001**",
+        "input_len": 5531,
+        "compressed_len": 128,
+        "retention_pct": 2.3,
+        "time": 2.0603654384613037
+      },
+      "SnapKV-512": {
+        "correct": true,
+        "answer": "93810ĊOkay,ĠsoĠI'mĠtryingĠtoĠfigureĠoutĠwhatĠvalueĠtheĠresearchersĠrecordedĠasĠtheĠbaselineĠmeasurem",
+        "input_len": 5531,
+        "compressed_len": 512,
+        "retention_pct": 9.3,
+        "time": 1.9185168743133545
+      },
+      "SnapKV-1024": {
+        "correct": true,
+        "answer": "93810ĊOkay,ĠsoĠI'mĠtryingĠtoĠfigureĠoutĠwhatĠvalueĠtheĠresearchersĠrecordedĠasĠtheĠbaselineĠmeasurem",
+        "input_len": 5531,
+        "compressed_len": 1024,
+        "retention_pct": 18.5,
+        "time": 1.8565125465393066
+      },
+      "SnapKV-2048": {
+        "correct": true,
+        "answer": "93810ĊOkay,ĠsoĠI'mĠtryingĠtoĠfigureĠoutĠwhatĠvalueĠtheĠresearchersĠrecordedĠasĠtheĠbaselineĠmeasurem",
+        "input_len": 5531,
+        "compressed_len": 2048,
+        "retention_pct": 37.0,
+        "time": 1.7281835079193115
+      }
+    },
+    "25%处": {
+      "Baseline": {
+        "correct": true,
+        "answer": "93810,93810,93810,theyrecordedits93810,theyrecordedits93810ĊĊOkay,whicharelatedexperiment,",
+        "input_len": 5531,
+        "compressed_len": 5531,
+        "retention_pct": 100.0,
+        "time": 2.8779094219207764
+      },
+      "SnapKV-128": {
+        "correct": true,
+        "answer": "93810ĊOkay,ĠsoĠI'mĠtryingĠtoĠfigureĠoutĠwhatĠvalueĠresearchersĠrecordedĠasĠtheĠbaselineĠmeasurementĠ",
+        "input_len": 5531,
+        "compressed_len": 128,
+        "retention_pct": 2.3,
+        "time": 1.959212303161621
+      },
+      "SnapKV-512": {
+        "correct": true,
+        "answer": "93810ĊOkay,ĠsoĠI'mĠtryingĠtoĠfigureĠoutĠwhatĠvalueĠresearchersĠrecordedĠasĠtheĠbaselineĠmeasurementĠ",
+        "input_len": 5531,
+        "compressed_len": 512,
+        "retention_pct": 9.3,
+        "time": 1.9249510765075684
+      },
+      "SnapKV-1024": {
+        "correct": true,
+        "answer": "93810ĊOkay,ĠsoĠI'mĠtryingĠtoĠfigureĠoutĠwhatĠvalueĠtheĠresearchersĠrecordedĠasĠtheĠbaselineĠmeasurem",
+        "input_len": 5531,
+        "compressed_len": 1024,
+        "retention_pct": 18.5,
+        "time": 1.869800329208374
+      },
+      "SnapKV-2048": {
+        "correct": true,
+        "answer": "93810ĊOkay,ĠsoĠI'mĠtryingĠtoĠfigureĠoutĠwhatĠvalueĠtheĠresearchersĠrecordedĠasĠtheĠbaselineĠmeasurem",
+        "input_len": 5531,
+        "compressed_len": 2048,
+        "retention_pct": 37.0,
+        "time": 1.733755111694336
+      }
+    },
+    "中间 (50%)": {
+      "Baseline": {
+        "correct": true,
+        "answer": "Inarelatedexperiment,93810,theyrecordedits93810,theyrecordeditsystemoresearchingthebaselaboriginalit",
+        "input_len": 5533,
+        "compressed_len": 5533,
+        "retention_pct": 100.0,
+        "time": 2.8831217288970947
+      },
+      "SnapKV-128": {
+        "correct": true,
+        "answer": "Inarelatedexperiment,researchersrecordedthevalue93810asthebaselinemeasurement.ĊOkay,ĠsoĠI'mĠtryingĠt",
+        "input_len": 5533,
+        "compressed_len": 128,
+        "retention_pct": 2.3,
+        "time": 1.96915864944458
+      },
+      "SnapKV-512": {
+        "correct": true,
+        "answer": "Inarelatedexperiment,researchersrecordedthevalue93810asthebaselinemeasurement.ĊOkay,ĠsoĠI'mĠtryingĠt",
+        "input_len": 5533,
+        "compressed_len": 512,
+        "retention_pct": 9.3,
+        "time": 1.932645559310913
+      },
+      "SnapKV-1024": {
+        "correct": true,
+        "answer": "Inarelatedexperiment,researchersrecordedthevalue93810asthebaselinemeasurement.ĊOkay,ĠsoĠI'mĠtryingĠt",
+        "input_len": 5533,
+        "compressed_len": 1024,
+        "retention_pct": 18.5,
+        "time": 1.8792939186096191
+      },
+      "SnapKV-2048": {
+        "correct": true,
+        "answer": "Inarelatedexperiment,researchersrecordedthevalue93810asthebaselinemeasurement.ĊOkay,ĠsoĠI'mĠtryingĠt",
+        "input_len": 5533,
+        "compressed_len": 2048,
+        "retention_pct": 37.0,
+        "time": 1.7510080337524414
+      }
+    },
+    "75%处": {
+      "Baseline": {
+        "correct": true,
+        "answer": "Inarelatedexperiment,93810,theyrecordedits93810ĊĊOkay,theyrecordeditsystematically,theyrecordedits93",
+        "input_len": 5533,
+        "compressed_len": 5533,
+        "retention_pct": 100.0,
+        "time": 2.908803939819336
+      },
+      "SnapKV-128": {
+        "correct": true,
+        "answer": "Inarelatedexperiment,researchersrecordedthevalue93810asthebaselinemeasurement.Ċ</think>ĊĊInĠtheĠrela",
+        "input_len": 5533,
+        "compressed_len": 128,
+        "retention_pct": 2.3,
+        "time": 1.977318525314331
+      },
+      "SnapKV-512": {
+        "correct": true,
+        "answer": "Inarelatedexperiment,researchersrecordedthevalue93810asthebaselinemeasurement.ĊOkay,ĠsoĠI'mĠtryingĠt",
+        "input_len": 5533,
+        "compressed_len": 512,
+        "retention_pct": 9.3,
+        "time": 1.944627285003662
+      },
+      "SnapKV-1024": {
+        "correct": true,
+        "answer": "Inarelatedexperiment,researchersrecordedthevalue93810asthebaselinemeasurement.ĊOkay,ĠsoĠI'mĠtryingĠt",
+        "input_len": 5533,
+        "compressed_len": 1024,
+        "retention_pct": 18.5,
+        "time": 1.8877179622650146
+      },
+      "SnapKV-2048": {
+        "correct": true,
+        "answer": "Inarelatedexperiment,researchersrecordedthevalue93810asthebaselinemeasurement.ĊOkay,ĠsoĠI'mĠtryingĠt",
+        "input_len": 5533,
+        "compressed_len": 2048,
+        "retention_pct": 37.0,
+        "time": 1.7551727294921875
+      }
+    },
+    "结尾 (100%)": {
+      "Baseline": {
+        "correct": true,
+        "answer": "93810,93810ĊĊOkay,theyrecordedits93810ĊĊOkay,theyrecordeditsystematically,theyrecordedoccurringto",
+        "input_len": 5533,
+        "compressed_len": 5533,
+        "retention_pct": 100.0,
+        "time": 2.919497489929199
+      },
+      "SnapKV-128": {
+        "correct": true,
+        "answer": "93810ĊOkay,ĠsoĠI'mĠtryingĠtoĠfigureĠoutĠwhatĠvalueĠtheĠresearchersĠrecordedĠasĠtheĠbaselineĠmeasurem",
+        "input_len": 5533,
+        "compressed_len": 128,
+        "retention_pct": 2.3,
+        "time": 1.9966349601745605
+      },
+      "SnapKV-512": {
+        "correct": true,
+        "answer": "93810ĊOkay,ĠsoĠI'mĠtryingĠtoĠfigureĠoutĠwhatĠvalueĠtheĠresearchersĠrecordedĠasĠtheĠbaselineĠmeasurem",
+        "input_len": 5533,
+        "compressed_len": 512,
+        "retention_pct": 9.3,
+        "time": 1.960515022277832
+      },
+      "SnapKV-1024": {
+        "correct": true,
+        "answer": "93810ĊOkay,ĠsoĠI'mĠtryingĠtoĠfigureĠoutĠwhatĠvalueĠtheĠresearchersĠrecordedĠasĠtheĠbaselineĠmeasurem",
+        "input_len": 5533,
+        "compressed_len": 1024,
+        "retention_pct": 18.5,
+        "time": 1.8958959579467773
+      },
+      "SnapKV-2048": {
+        "correct": true,
+        "answer": "93810ĊOkay,ĠsoĠI'mĠtryingĠtoĠfigureĠoutĠwhatĠvalueĠtheĠresearchersĠrecordedĠasĠtheĠbaselineĠmeasurem",
+        "input_len": 5533,
+        "compressed_len": 2048,
+        "retention_pct": 37.0,
+        "time": 1.759279727935791
+      }
+    }
+  }
+}

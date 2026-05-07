@@ -27,6 +27,24 @@
 - 只保留 14% 的 KV Cache，正确率不下降，速度提升 1.54x
 - SnapKV 正确率反而高于 Baseline（100% vs 75%）——压缩掉噪声 token 后模型更专注于相关信息
 
+### 实验二：大海捞针（~5.5K tokens，5个位置）
+
+| Config | 开头 | 25% | 中间 | 75% | 结尾 |
+|---|---|---|---|---|---|
+| Baseline | ✅ | ✅ | ✅ | ✅ | ✅ |
+| SnapKV-128 | ✅ | ✅ | ✅ | ✅ | ✅ |
+| SnapKV-512 | ✅ | ✅ | ✅ | ✅ | ✅ |
+| SnapKV-1024 | ✅ | ✅ | ✅ | ✅ | ✅ |
+| SnapKV-2048 | ✅ | ✅ | ✅ | ✅ | ✅ |
+
+**核心结论：**
+- 即使压缩到 2%（128 tokens），SnapKV 仍能在所有位置找到关键信息
+- 说明 observation window 机制有效：问题关键词引导 attention score 指向相关 token
+
+## 下一步：实验三
+
+**全文理解评测**：用多个覆盖文档不同位置的问题综合评分，测试压缩率对整体理解能力的影响。
+
 ## 参数说明
 
 | 参数 | 含义 |
@@ -53,8 +71,10 @@
 | `experiment1_snapkv_v1~v4.py` | SnapKV 实现调试迭代过程 |
 | `experiment1_snapkv_v5.py` | SnapKV 可用版本 |
 | `experiment1_v2_longdoc.py` | 实验一完整版（baseline + 3个压缩配置对比） |
+| `experiment2_needle.py` | 实验二：大海捞针 |
 | `snapkv_utils.py` | SnapKV 核心算法（参考官方 repo） |
 | `results_experiment1_v2.json` | 实验一完整结果数据 |
+| `results_experiment2_needle.json` | 实验二完整结果数据 |
 
 ## 环境
 
