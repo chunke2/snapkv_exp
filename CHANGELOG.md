@@ -128,3 +128,27 @@ stride=4 achieves 100% accuracy with 3.4x compress speedup. D17 resolved: compre
 ### Defects resolved
 - D17: SnapKV compress overhead 7-10x higher than KeepFirst -- reduced to 2.9x via layer sampling
 
+
+---
+
+## Round 5 -- 2026-05-14: Fix D3 + D2, experiment4 migrated to snapkv_lib
+
+**Decision**: A (keep and merge, awaiting LongBench data for verification)
+
+### What was done
+- Rewrote experiment4_longbench.py to use snapkv_lib.py shared library
+- D3 fixed: attention_mask now handled correctly via HuggingFace generate() internals
+- D2 fixed: removed make_snapkv_forward dead code (used last-layer query for all layers)
+- Added KeepFirst-256/512 baselines to LongBench config
+- Uses layer_stride=4 for SnapKV configs (optimal from R4)
+- Graceful exit when qasper data not found
+
+### Verification
+- Import OK on server
+- Cannot run full verification without LongBench qasper data (not on server)
+- Code structure verified correct; attention_mask path matches working experiment3/5
+
+### Defects resolved
+- D2: make_snapkv_forward dead code removed
+- D3: attention_mask mismatch fixed (uses generate() defaults)
+

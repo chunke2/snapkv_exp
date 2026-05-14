@@ -206,3 +206,19 @@ None this round.
 
 ### Status unchanged
 - D1, D2, D3, D8, D9, D10, D11, D12, D13, D14, D15 -- not addressed
+
+---
+
+## Round 5 Updates (2026-05-14)
+
+### Fixed this round
+
+~~D2: experiment4 make_snapkv_forward uses last-layer query for all layers~~
+  -> Removed dead code. experiment4 now uses snapkv_lib.compress_cache with per-layer queries.
+
+~~D3: experiment4 attention_mask mismatch after compression~~
+  -> Fixed by using HuggingFace generate() default attention_mask handling (same pattern as working experiment3/5).
+
+### Status unchanged
+- D1: experiment1_snapkv patch_model_with_snapkv never compresses
+- D8-D15: methodology notes, not addressed
