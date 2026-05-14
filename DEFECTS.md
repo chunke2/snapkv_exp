@@ -128,3 +128,40 @@ New defects appended at bottom.
 | High | 4 | Should fix for reliable experimentation |
 | Medium | 5 | Fix opportunistically |
 | Low | 3 | Methodology notes, no code change |
+
+---
+
+## Round 1 Updates (2026-05-14)
+
+### Fixed this round
+
+~~D5: snapkv_compress_gqa duplicated in 5 files~~ → Extracted to snapkv_lib.py. All experiments now import shared implementation.
+
+~~D6: Hardcoded GQA head counts~~ → Auto-detect from model.config.num_attention_heads / num_key_value_heads.
+
+~~D7: Memory measurement inconsistency~~ → Standardized: all experiments use torch.cuda.max_memory_allocated() via shared run_inference.
+
+~~F2: No control baselines~~ → Added Random-K and KeepFirst-K strategies in snapkv_lib.py.
+
+~~F4: No latency decomposition~~ → run_inference now reports prefill_time, compress_time, decode_time separately.
+
+~~F7: Experiments not comparable~~ → Unified inference loop in snapkv_lib.py with consistent metrics interface.
+
+### New defects discovered
+
+#### D16: SnapKV does not outperform KeepFirst on short-document factual QA
+- **File**: experiment3_comprehension.py results
+- **Type**: experimental finding
+- **Severity**: High (research significance)
+- **Description**: On the transformer paper comprehension test (~1500 tokens), KeepFirst-256/512 achieves 83% accuracy — identical to SnapKV-256/512. The important information (abstract, key results) is at the beginning of the document, so simply keeping the first K tokens works as well as attention-based selection. Random-256 gets 0%, proving selection matters — but attention scoring doesn't beat the position heuristic.
+- **Impact**: Current test setup cannot distinguish SnapKV's value from a trivial baseline. Need tests where critical information is NOT at the beginning.
+
+#### D17: SnapKV compress overhead 7x higher than KeepFirst with no accuracy gain
+- **File**: experiment3_comprehension.py results
+- **Type**: performance finding
+- **Severity**: Medium
+- **Description**: SnapKV compress time = 0.041s vs KeepFirst = 0.006s. This is 7x overhead for no accuracy benefit on the current test. The overhead comes from attention computation (QK matmul + softmax + pooling + topk). For longer sequences where KeepFirst fails, this overhead may be justified — but not on short documents with front-loaded information.
+- **Impact**: Performance-cost ratio of SnapKV is poor on this test. Need to validate on scenarios where KeepFirst cannot work.
+
+### Status unchanged
+- D1, D2, D3, D8, D9, D10, D11, D12, D13, D14, D15 — not addressed this round
