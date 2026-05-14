@@ -9,7 +9,7 @@
       "input_len": 1545,
       "compressed_len": 1545,
       "retention_pct": 100.0,
-      "time": 1.6631748676300049,
+      "time": 1.7266876697540283,
       "peak_mem_gb": 16.265361309051514
     },
     {
@@ -21,7 +21,7 @@
       "input_len": 1539,
       "compressed_len": 1539,
       "retention_pct": 100.0,
-      "time": 1.195054531097412,
+      "time": 1.2485301494598389,
       "peak_mem_gb": 16.260036945343018
     },
     {
@@ -33,7 +33,7 @@
       "input_len": 1542,
       "compressed_len": 1542,
       "retention_pct": 100.0,
-      "time": 1.196779727935791,
+      "time": 1.2468814849853516,
       "peak_mem_gb": 16.26333236694336
     },
     {
@@ -45,7 +45,7 @@
       "input_len": 1545,
       "compressed_len": 1545,
       "retention_pct": 100.0,
-      "time": 1.1939172744750977,
+      "time": 1.248033046722412,
       "peak_mem_gb": 16.265148162841797
     },
     {
@@ -57,7 +57,7 @@
       "input_len": 1536,
       "compressed_len": 1536,
       "retention_pct": 100.0,
-      "time": 1.1793136596679688,
+      "time": 1.2248823642730713,
       "peak_mem_gb": 16.25750207901001
     },
     {
@@ -69,7 +69,7 @@
       "input_len": 1542,
       "compressed_len": 1542,
       "retention_pct": 100.0,
-      "time": 1.19840669631958,
+      "time": 1.246656894683838,
       "peak_mem_gb": 16.26333236694336
     }
   ],
@@ -83,7 +83,7 @@
       "input_len": 1545,
       "compressed_len": 128,
       "retention_pct": 8.3,
-      "time": 1.098299503326416,
+      "time": 1.1803910732269287,
       "peak_mem_gb": 16.038143157958984
     },
     {
@@ -95,7 +95,7 @@
       "input_len": 1539,
       "compressed_len": 128,
       "retention_pct": 8.3,
-      "time": 1.0099828243255615,
+      "time": 1.0655665397644043,
       "peak_mem_gb": 16.035152912139893
     },
     {
@@ -107,7 +107,7 @@
       "input_len": 1542,
       "compressed_len": 128,
       "retention_pct": 8.3,
-      "time": 1.0148351192474365,
+      "time": 1.0803978443145752,
       "peak_mem_gb": 16.03111982345581
     },
     {
@@ -119,7 +119,7 @@
       "input_len": 1545,
       "compressed_len": 128,
       "retention_pct": 8.3,
-      "time": 1.0108413696289062,
+      "time": 1.0661089420318604,
       "peak_mem_gb": 16.035358428955078
     },
     {
@@ -131,7 +131,7 @@
       "input_len": 1536,
       "compressed_len": 128,
       "retention_pct": 8.3,
-      "time": 0.9979157447814941,
+      "time": 1.0497891902923584,
       "peak_mem_gb": 16.031010150909424
     },
     {
@@ -143,7 +143,7 @@
       "input_len": 1542,
       "compressed_len": 128,
       "retention_pct": 8.3,
-      "time": 1.0127558708190918,
+      "time": 1.06587553024292,
       "peak_mem_gb": 16.03501844406128
     }
   ],
@@ -157,7 +157,7 @@
       "input_len": 1545,
       "compressed_len": 256,
       "retention_pct": 16.6,
-      "time": 1.0072507858276367,
+      "time": 1.05842924118042,
       "peak_mem_gb": 15.996892929077148
     },
     {
@@ -169,7 +169,7 @@
       "input_len": 1539,
       "compressed_len": 256,
       "retention_pct": 16.6,
-      "time": 1.0028958320617676,
+      "time": 1.0590136051177979,
       "peak_mem_gb": 15.994089603424072
     },
     {
@@ -181,7 +181,7 @@
       "input_len": 1542,
       "compressed_len": 256,
       "retention_pct": 16.6,
-      "time": 1.003890037536621,
+      "time": 1.057293176651001,
       "peak_mem_gb": 15.99411678314209
     },
     {
@@ -193,7 +193,7 @@
       "input_len": 1545,
       "compressed_len": 256,
       "retention_pct": 16.6,
-      "time": 1.006596565246582,
+      "time": 1.0569908618927002,
       "peak_mem_gb": 15.995925903320312
     },
     {
@@ -205,7 +205,7 @@
       "input_len": 1536,
       "compressed_len": 256,
       "retention_pct": 16.7,
-      "time": 0.9832353591918945,
+      "time": 1.0371787548065186,
       "peak_mem_gb": 16.00238275527954
     },
     {
@@ -217,7 +217,7 @@
       "input_len": 1542,
       "compressed_len": 256,
       "retention_pct": 16.6,
-      "time": 1.0027060508728027,
+      "time": 1.0570182800292969,
       "peak_mem_gb": 15.9954252243042
     }
   ],
@@ -231,7 +231,7 @@
       "input_len": 1545,
       "compressed_len": 512,
       "retention_pct": 33.1,
-      "time": 0.9822065830230713,
+      "time": 1.0388538837432861,
       "peak_mem_gb": 15.9129638671875
     },
     {
@@ -243,7 +243,7 @@
       "input_len": 1539,
       "compressed_len": 512,
       "retention_pct": 33.3,
-      "time": 0.9794843196868896,
+      "time": 1.0402114391326904,
       "peak_mem_gb": 15.90848684310913
     },
     {
@@ -255,7 +255,7 @@
       "input_len": 1542,
       "compressed_len": 512,
       "retention_pct": 33.2,
-      "time": 0.9809708595275879,
+      "time": 1.0403196811676025,
       "peak_mem_gb": 15.912744522094727
     },
     {
@@ -267,7 +267,7 @@
       "input_len": 1545,
       "compressed_len": 512,
       "retention_pct": 33.1,
-      "time": 0.9847977161407471,
+      "time": 1.0429463386535645,
       "peak_mem_gb": 15.912210464477539
     },
     {
@@ -279,7 +279,7 @@
       "input_len": 1536,
       "compressed_len": 512,
       "retention_pct": 33.3,
-      "time": 0.9630365371704102,
+      "time": 1.0226924419403076,
       "peak_mem_gb": 15.906647682189941
     },
     {
@@ -291,7 +291,7 @@
       "input_len": 1542,
       "compressed_len": 512,
       "retention_pct": 33.2,
-      "time": 0.9812629222869873,
+      "time": 1.0390455722808838,
       "peak_mem_gb": 15.912836074829102
     }
   ],
@@ -305,7 +305,7 @@
       "input_len": 1545,
       "compressed_len": 1024,
       "retention_pct": 66.3,
-      "time": 0.9470860958099365,
+      "time": 1.0046486854553223,
       "peak_mem_gb": 15.917210578918457
     },
     {
@@ -317,7 +317,7 @@
       "input_len": 1539,
       "compressed_len": 1024,
       "retention_pct": 66.5,
-      "time": 0.9354965686798096,
+      "time": 1.0016589164733887,
       "peak_mem_gb": 15.91174030303955
     },
     {
@@ -329,7 +329,7 @@
       "input_len": 1542,
       "compressed_len": 1024,
       "retention_pct": 66.4,
-      "time": 0.9348173141479492,
+      "time": 0.9920072555541992,
       "peak_mem_gb": 15.915505409240723
     },
     {
@@ -341,7 +341,7 @@
       "input_len": 1545,
       "compressed_len": 1024,
       "retention_pct": 66.3,
-      "time": 0.9362897872924805,
+      "time": 0.9996681213378906,
       "peak_mem_gb": 15.916388511657715
     },
     {
@@ -353,7 +353,7 @@
       "input_len": 1536,
       "compressed_len": 1024,
       "retention_pct": 66.7,
-      "time": 0.918062686920166,
+      "time": 0.9725029468536377,
       "peak_mem_gb": 15.934256076812744
     },
     {
@@ -365,7 +365,7 @@
       "input_len": 1542,
       "compressed_len": 1024,
       "retention_pct": 66.4,
-      "time": 0.9356667995452881,
+      "time": 0.9998221397399902,
       "peak_mem_gb": 15.915505409240723
     }
   ]
