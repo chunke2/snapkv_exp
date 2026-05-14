@@ -84,3 +84,47 @@
 - D19: Pure numeric needles avoid BPE fragmentation
 - D20: 8157 tokens is sufficient length for KeepFirst differentiation
 
+
+---
+
+## Round 3 -- 2026-05-14: D17 scoring_window optimization attempt
+
+**Decision**: B (keep code, D17 not solved by this path)
+
+### What was done
+- Added scoring_window parameter to snapkv_compress_gqa (decoupled from observation window)
+- Tested scoring=8 and scoring=4 vs scoring=64 (baseline)
+
+### Key results
+- SnapKV-256-fast8 (scoring=8): 80% acc, 0.363s compress -- loses P75, 21% speedup only
+- SnapKV-256-fast4 (scoring=4): 80% acc, 0.279s compress -- loses P75, 39% speedup only
+- QK matmul speedup does not translate to proportional overall speedup (softmax/pool/topk dominate on full sequence)
+
+### Finding
+Reducing scoring window loses mid-document retrieval capability (P75). The attention diversity from 64 queries is necessary for scoring tokens far from the observation window.
+
+---
+
+## Round 4 -- 2026-05-14: D17 layer sampling (stride=4), 3.4x compress speedup
+
+**Decision**: A (keep and merge)
+
+### What was done
+- Refactored snapkv_compress_gqa into _snapkv_compute_indices + _apply_indices
+- Added layer_stride parameter to compress_cache: compute indices every N layers, share with neighbors
+- Tested stride=4 (9/32 layers) and stride=8 (5/32 layers)
+
+### Key results (8157 tokens, 5 needles)
+| Config | Acc | Compress | Decode | vs KeepFirst |
+|--------|-----|----------|--------|:--:|
+| SnapKV-256 | 100% | 0.460s | 2.50s | 10x slower |
+| SnapKV-256-stride4 | 100% | 0.136s | 2.50s | 2.9x slower |
+| SnapKV-256-stride8 | 80% | 0.121s | 2.50s | -- |
+| KeepFirst-256 | 80% | 0.047s | 2.15s | baseline |
+
+### Critical finding
+stride=4 achieves 100% accuracy with 3.4x compress speedup. D17 resolved: compress overhead reduced from 10x to 2.9x vs KeepFirst while maintaining SnapKV's full mid-document retrieval advantage.
+
+### Defects resolved
+- D17: SnapKV compress overhead 7-10x higher than KeepFirst -- reduced to 2.9x via layer sampling
+

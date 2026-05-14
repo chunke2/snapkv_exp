@@ -28,26 +28,23 @@ def _get_head_counts(model):
     return num_q_heads, num_kv_heads
 
 
-def snapkv_compress_gqa(query_states, key_states, value_states,
-                         window_size, max_capacity_prompt, kernel_size=5,
-                         num_q_heads=None, num_kv_heads=None):
-    """
-    GQA-aware SnapKV compression.
-    Returns (compressed_key, compressed_value, did_compress).
-    """
+def _snapkv_compute_indices(query_states, key_states, window_size, max_capacity_prompt,
+                             kernel_size=5, num_q_heads=None, num_kv_heads=None,
+                             scoring_window=None):
+    """Compute top-k indices for SnapKV compression (without gathering)."""
+    if scoring_window is None:
+        scoring_window = window_size
+
     bsz, num_kv, q_len, head_dim = key_states.shape
     if q_len <= max_capacity_prompt:
-        return key_states, value_states, False
-
-    if num_q_heads is None or num_kv_heads is None:
-        raise ValueError("num_q_heads and num_kv_heads must be provided")
+        return None
 
     num_groups = num_q_heads // num_kv_heads
     q_grouped = query_states.view(bsz, num_kv_heads, num_groups, q_len, head_dim)
     q_mean = q_grouped.mean(dim=2)
 
     attn_weights = torch.matmul(
-        q_mean[:, :, -window_size:, :],
+        q_mean[:, :, -scoring_window:, :],
         key_states.transpose(2, 3)
     ) / math.sqrt(head_dim)
     attn_weights = F.softmax(attn_weights, dim=-1, dtype=torch.float32).to(query_states.dtype)
@@ -57,15 +54,42 @@ def snapkv_compress_gqa(query_states, key_states, value_states,
                           padding=kernel_size // 2, stride=1)
 
     k = max_capacity_prompt - window_size
-    indices = pooled.topk(k, dim=-1).indices
-    indices_expanded = indices.unsqueeze(-1).expand(-1, -1, -1, head_dim)
+    indices = pooled.topk(k, dim=-1).indices  # [bsz, num_kv, k]
+    return indices
 
+
+def _apply_indices(key_states, value_states, indices, window_size, head_dim):
+    """Apply pre-computed indices to compress KV cache."""
+    indices_expanded = indices.unsqueeze(-1).expand(-1, -1, -1, head_dim)
     k_compressed = key_states[:, :, :-window_size, :].gather(dim=2, index=indices_expanded)
     v_compressed = value_states[:, :, :-window_size, :].gather(dim=2, index=indices_expanded)
     key_out = torch.cat([k_compressed, key_states[:, :, -window_size:, :]], dim=2)
     value_out = torch.cat([v_compressed, value_states[:, :, -window_size:, :]], dim=2)
+    return key_out, value_out
 
-    return key_out, value_out, True
+
+def snapkv_compress_gqa(query_states, key_states, value_states,
+                         window_size, max_capacity_prompt, kernel_size=5,
+                         num_q_heads=None, num_kv_heads=None,
+                         scoring_window=None):
+    """
+    GQA-aware SnapKV compression.
+    Returns (compressed_key, compressed_value, did_compress).
+    """
+    head_dim = key_states.shape[-1]
+    if key_states.shape[2] <= max_capacity_prompt:
+        return key_states, value_states, False
+
+    indices = _snapkv_compute_indices(
+        query_states, key_states, window_size, max_capacity_prompt,
+        kernel_size=kernel_size, num_q_heads=num_q_heads, num_kv_heads=num_kv_heads,
+        scoring_window=scoring_window,
+    )
+    if indices is None:
+        return key_states, value_states, False
+
+    k_out, v_out = _apply_indices(key_states, value_states, indices, window_size, head_dim)
+    return k_out, v_out, True
 
 
 def random_compress(key_states, value_states, window_size, max_capacity_prompt):
@@ -163,35 +187,74 @@ def restore_attention(original_forward):
 # ---------------------------------------------------------------------------
 
 def compress_cache(model, past_key_values, window_size, max_capacity_prompt,
-                   num_q_heads=None, num_kv_heads=None, strategy="snapkv"):
+                   num_q_heads=None, num_kv_heads=None, strategy="snapkv",
+                   scoring_window=None, layer_stride=1):
     """
     Compress KV cache in-place using the given strategy.
+
+    layer_stride: if > 1, only compute SnapKV indices every N layers and share
+                  with neighbors (e.g. stride=4 → 8 layers computed instead of 32).
     Returns compression info dict.
     """
-    compress_fn = COMPRESS_STRATEGIES[strategy]
-    info = {"compressed_count": 0, "before": None, "after": None}
+    n_layers = len(past_key_values.layers)
+    info = {"compressed_count": 0, "before": None, "after": None,
+            "layer_stride": layer_stride, "indices_from": {}}
 
+    if layer_stride < 1:
+        layer_stride = 1
+
+    # ── Phase 1: compute indices on sampled layers ──
+    sampled_indices = {}  # sampled_layer_idx → indices tensor
+    head_dim = past_key_values.layers[0].keys.shape[-1]
+
+    if strategy == "snapkv":
+        sampled_layers = list(range(0, n_layers, layer_stride))
+        # Always include last layer for observation-window fidelity
+        if sampled_layers[-1] != n_layers - 1:
+            sampled_layers.append(n_layers - 1)
+
+        for i in sampled_layers:
+            layer = past_key_values.layers[i]
+            q = model.model.layers[i].self_attn._last_query
+            indices = _snapkv_compute_indices(
+                q, layer.keys, window_size, max_capacity_prompt,
+                num_q_heads=num_q_heads, num_kv_heads=num_kv_heads,
+                scoring_window=scoring_window,
+            )
+            if indices is not None:
+                sampled_indices[i] = indices
+
+    # ── Phase 2: apply indices to all layers ──
     for i, layer in enumerate(past_key_values.layers):
         before = layer.keys.shape[2]
         if i == 0:
             info["before"] = before
 
-        if strategy == "snapkv":
-            q = model.model.layers[i].self_attn._last_query
-            k_new, v_new, did = compress_fn(
-                q, layer.keys, layer.values,
-                window_size, max_capacity_prompt,
-                num_q_heads=num_q_heads, num_kv_heads=num_kv_heads,
-            )
+        did = False
+        if strategy == "snapkv" and sampled_indices:
+            # Find nearest sampled layer
+            nearest = min(sampled_indices.keys(), key=lambda s: abs(s - i))
+            indices = sampled_indices[nearest]
+            info["indices_from"][i] = nearest
+
+            if before > max_capacity_prompt:
+                k_new, v_new = _apply_indices(
+                    layer.keys, layer.values, indices, window_size, head_dim,
+                )
+                layer.keys = k_new
+                layer.values = v_new
+                did = True
         else:
+            compress_fn = COMPRESS_STRATEGIES[strategy]
             k_new, v_new, did = compress_fn(
                 layer.keys, layer.values,
                 window_size, max_capacity_prompt,
             )
+            if did:
+                layer.keys = k_new
+                layer.values = v_new
 
         if did:
-            layer.keys = k_new
-            layer.values = v_new
             info["compressed_count"] += 1
         if i == 0:
             info["after"] = layer.keys.shape[2]
@@ -206,7 +269,8 @@ def compress_cache(model, past_key_values, window_size, max_capacity_prompt,
 def run_inference(model, tokenizer, prompt,
                   compress_strategy=None,
                   window_size=64, max_capacity_prompt=512,
-                  max_new_tokens=50):
+                  max_new_tokens=50, scoring_window=None,
+                  layer_stride=1):
     """
     Unified inference: prefill → optional compression → decode.
 
@@ -247,6 +311,8 @@ def run_inference(model, tokenizer, prompt,
                 model, past_kv, window_size, max_capacity_prompt,
                 num_q_heads=num_q_heads, num_kv_heads=num_kv_heads,
                 strategy=compress_strategy,
+                scoring_window=scoring_window,
+                layer_stride=layer_stride,
             )
             compress_time = time.time() - t1
             compressed_len = past_kv.layers[0].keys.shape[2]

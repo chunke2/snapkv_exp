@@ -160,15 +160,16 @@ def build_document():
 DOCUMENT = build_document()
 
 STRATEGY_CONFIGS = [
-    (None,         "Baseline",        None,         64, None),
-    ("snapkv",     "SnapKV-256",      "snapkv",     64, 256),
-    ("snapkv",     "SnapKV-512",      "snapkv",     64, 512),
-    ("snapkv",     "SnapKV-1024",     "snapkv",     64, 1024),
-    ("keepfirst",  "KeepFirst-256",   "keepfirst",  64, 256),
-    ("keepfirst",  "KeepFirst-512",   "keepfirst",  64, 512),
-    ("keepfirst",  "KeepFirst-1024",  "keepfirst",  64, 1024),
-    ("random",     "Random-256",      "random",     64, 256),
-    ("random",     "Random-512",      "random",     64, 512),
+    # (type, label, comp_strat, ws, cap, scoring_window, layer_stride)
+    (None,         "Baseline",             None,         64, None, None, 1),
+    ("snapkv",     "SnapKV-256",           "snapkv",     64, 256,  None, 1),
+    ("snapkv",     "SnapKV-256-stride4",   "snapkv",     64, 256,  None, 4),
+    ("snapkv",     "SnapKV-256-stride8",   "snapkv",     64, 256,  None, 8),
+    ("snapkv",     "SnapKV-256-fast4",     "snapkv",     64, 256,  4,    1),
+    ("snapkv",     "SnapKV-512",           "snapkv",     64, 512,  None, 1),
+    ("keepfirst",  "KeepFirst-256",        "keepfirst",  64, 256,  None, 1),
+    ("keepfirst",  "KeepFirst-512",        "keepfirst",  64, 512,  None, 1),
+    ("random",     "Random-256",           "random",     64, 256,  None, 1),
 ]
 
 
@@ -204,9 +205,14 @@ def main():
 
     all_results = {}
 
-    for str_type, label, comp_strat, ws, cap in STRATEGY_CONFIGS:
+    for str_type, label, comp_strat, ws, cap, sw, ls in STRATEGY_CONFIGS:
+        extra = ""
+        if sw:
+            extra += f"  scoring={sw}"
+        if ls > 1:
+            extra += f"  stride={ls}"
         print(f"{'='*60}")
-        print(f"{label}  budget={cap or 'full'}")
+        print(f"{label}  budget={cap or 'full'}{extra}")
         print(f"{'='*60}")
 
         cases = []
@@ -218,6 +224,8 @@ def main():
                 window_size=ws,
                 max_capacity_prompt=cap or 99999,
                 max_new_tokens=50,
+                scoring_window=sw,
+                layer_stride=ls,
             )
             correct = check_correct_keyword(result["answer"], test["answer"])
 
@@ -253,7 +261,7 @@ def main():
         hdr += f" {p:<6}"
     print(hdr)
     print("-" * 65)
-    for _, label, _, _, _ in STRATEGY_CONFIGS:
+    for _, label, _, _, _, _, _ in STRATEGY_CONFIGS:
         cases = all_results[label]
         row = f"{label:<16}"
         for c in cases:
@@ -266,7 +274,7 @@ def main():
     print(f"{'='*65}")
     print(f"{'Config':<16} {'Acc':<6} {'Dec(s)':<8} {'Total(s)':<8} {'Ret%':<6}")
     print("-" * 55)
-    for _, label, _, _, _ in STRATEGY_CONFIGS:
+    for _, label, _, _, _, _, _ in STRATEGY_CONFIGS:
         cases = all_results[label]
         acc = sum(c["correct"] for c in cases) / n * 100
         dec = sum(c["decode_time"] for c in cases) / n

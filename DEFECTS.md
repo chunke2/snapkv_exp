@@ -190,3 +190,19 @@ None this round.
 
 ### Status unchanged
 - D1, D2, D3, D8, D9, D10, D11, D12, D13, D14, D15, D17 — not addressed this round
+
+---
+
+## Rounds 3-4 Updates (2026-05-14)
+
+### Fixed this round
+
+~~D17: SnapKV compress overhead 7-10x higher than KeepFirst with no accuracy gain~~
+  -> Layer sampling (stride=4) reduces compress time from 0.460s to 0.136s (3.4x speedup) while maintaining 100% accuracy. Compress overhead vs KeepFirst reduced from 10x to 2.9x.
+
+### Parameters added
+- scoring_window: decouple scoring queries from observation window (flexibility tool, not primary optimization)
+- layer_stride: compute SnapKV indices every N layers, share with neighbors (primary D17 fix)
+
+### Status unchanged
+- D1, D2, D3, D8, D9, D10, D11, D12, D13, D14, D15 -- not addressed
