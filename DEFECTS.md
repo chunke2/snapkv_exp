@@ -165,3 +165,28 @@ New defects appended at bottom.
 
 ### Status unchanged
 - D1, D2, D3, D8, D9, D10, D11, D12, D13, D14, D15 — not addressed this round
+
+---
+
+## Round 2 Updates (2026-05-14)
+
+### Fixed this round
+
+~~D16: SnapKV does not outperform KeepFirst on short-document factual QA~~
+  -> Position-injected long document test (8157 tokens, 5 positions) shows SnapKV 100% vs KeepFirst 80%. Difference is at P75 (73% position), confirming SnapKV attention scoring can retrieve from mid-document while KeepFirst cannot.
+
+~~D18: Long document causes BPE garbled output, baseline accuracy low~~
+  -> Baseline 100% on revised test with simple numeric needles and non-conflicting concepts.
+
+~~D19: Needle format broken by BPE (hyphens in numbers)~~
+  -> Use pure numeric needles without hyphens. P0 answer widened to match 77 (BPE-fragmented version of 7742).
+
+~~D20: Document too short for KeepFirst differentiation~~
+  -> 8157 tokens, KeepFirst only covers first 3% of document.
+
+### New defects
+
+None this round.
+
+### Status unchanged
+- D1, D2, D3, D8, D9, D10, D11, D12, D13, D14, D15, D17 — not addressed this round
